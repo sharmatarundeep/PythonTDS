@@ -1,11 +1,10 @@
-print "Enter you name"
-name = raw_input()
+# Find the exact year when a person will be 100 years
+name = input("Enter your name\n")
+age = input("Enter your age\n")
 
-print "Enter you age"
-age = raw_input()
+#current year + 100 - age of of the person
+year=2024+100-int(age)
 
-year=2020+100-int(age)
-
-print name +" will turn 100 year old in " + str(year)
+print (name +" will turn 100 in " + str(year))
 
 
