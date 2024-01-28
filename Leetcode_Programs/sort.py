@@ -1,7 +1,11 @@
 l=[3,2,1,4,5,8,7,1]
-print l
+print(l)
+l.sort() # this will sort the list
+print("sorted list is ")
+print(l)
+'''
 noe=len(l)
-print "number of element in list are:" + str(noe)
+print("number of element in list are:" + str(noe))
 
 for i in range(0,noe):
   for j in range(i+1,noe):
@@ -12,6 +16,6 @@ for i in range(0,noe):
       l[j]=temp
 
 print "sorted list is "
-print l
+print l'''
 
 
