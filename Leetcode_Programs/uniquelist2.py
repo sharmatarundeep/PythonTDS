@@ -13,8 +13,10 @@ print l
 '''
 #Method 2
 s=set(a)
+print(s)
+# if we need to see the output as list only then convert set to list
 l=list(s)
-print a
-print l
+print(a)
+print(l)
 
 

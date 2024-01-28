@@ -7,8 +7,8 @@ b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 l=a+b
 s=set(l)
 l=list(s)
-print a
-print b
-print s
-print l
+print(a)
+print(b)
+print(s)
+print(l)
 
