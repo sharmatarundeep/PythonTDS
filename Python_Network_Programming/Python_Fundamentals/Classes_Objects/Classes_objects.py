@@ -47,3 +47,5 @@ print(hasattr(router1, "IOS")) # False
 #isinstance - To check an object is an instance of a particular class
 print(isinstance(router2, MyRouter))
 print(isinstance(router1, MyRouter))
+
+print ("End of parent class")
