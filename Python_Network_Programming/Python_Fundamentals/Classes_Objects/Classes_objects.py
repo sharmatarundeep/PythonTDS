@@ -12,7 +12,7 @@ class MyRouter(object):
         print("Router ios is : ", self.ios)
         print("Router model & manufacturing date is : ", self.model + manu_date)
 
-#creating objects from a class
+#creating objects from a class 
 router1 = MyRouter("R1", "2600", "123456","12.4")
 print(router1)
 router2 = MyRouter("R2", "7500", "00000","10.1")
@@ -22,6 +22,7 @@ print(router2)
 print(router1.routername)
 print(router1.model)
 print(router1.sno)
+print(router1.ios)
 print(router1.ios)
 
 #call a method which is inside a class defination

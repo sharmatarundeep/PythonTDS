@@ -11,9 +11,10 @@ router4 = MyNewRouter("R1", "2600", "123456","12.4", "10")
 print(router4)
 print(router4.model) # attribute from parent class
 print(router4.portsno) # attribute from child class
+print(router4.portsno) # attribute from child class
 
 #calling func from child class
 router4.print_new_router("abc")
 
 #calling func from child class
-router4.print_router("Jan01,2024")
+router4.print_router("Jan01,2024") 
