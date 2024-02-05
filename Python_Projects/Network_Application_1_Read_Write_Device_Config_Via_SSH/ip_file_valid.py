@@ -22,5 +22,5 @@ def ip_file_valid():
     return ip_list # This is the list of all the IP address specific in the ip.txt file
 
 
-
+# ip_file_valid() # just for testing
 
