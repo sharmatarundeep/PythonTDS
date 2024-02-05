@@ -1,0 +1,4 @@
+FastCli
+enable
+config ter
+hostname Tarun
