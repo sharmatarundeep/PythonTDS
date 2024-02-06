@@ -1,4 +1,4 @@
-# Check the IP address file is present in local file system, read its context and return IP address as a list
+# Make sure that the IP address file is present in local file system, read its context and return IP address as a list
 import sys
 import os.path
 
@@ -20,7 +20,6 @@ def ip_file_valid():
     ip_list = selected_ip_file.readlines() 
     
     return ip_list # This is the list of all the IP address specific in the ip.txt file
-
 
 # ip_file_valid() # just for testing
 

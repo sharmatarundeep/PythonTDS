@@ -12,7 +12,7 @@ def ip_reach(iplist):
 
         #print (ping_reply) # just to check
 
-        if ping_reply == 0:
+        if ping_reply == 0: # 0 is for echo reply 
             print ("Device is reachable: ", ip)
         else:
             print ("Device is not reachable: ", ip)

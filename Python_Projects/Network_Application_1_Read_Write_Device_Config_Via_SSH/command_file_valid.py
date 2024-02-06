@@ -1,4 +1,4 @@
-# Check the command  file is present in local file system
+# Make sure that the file with commands is present in local file system
 import sys
 import os.path
 
@@ -12,5 +12,5 @@ def command_file_valid():
         print ("Command file doesn't exist, please enter valid path and file name for the file")
         sys.exit() # exit the program
 
-command_file_valid() # just for testing
+#command_file_valid() # just for testing
 

@@ -1,4 +1,4 @@
-# Check the User Password file is present in local file system
+# Make sure that the file containing user name and password is present in local file system or not
 import sys
 import os.path
 
