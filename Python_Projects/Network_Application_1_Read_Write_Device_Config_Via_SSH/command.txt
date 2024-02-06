@@ -1,4 +1,3 @@
-FastCli
-enable
-config ter
+config terminal
 hostname Tarun
+show ip interface br

@@ -3,11 +3,12 @@ import sys
 import os.path
 
 def command_file_valid():
-    usr_file = input("Enter Username and Password file path and name")
+    cmd_file = input("Enter command file path and name")
 
     #check if file exist 
-    if os.path.isfile(usr_file) == True:
+    if os.path.isfile(cmd_file) == True:
         print ("Command file exist")
+        return cmd_file
     else:
         print ("Command file doesn't exist, please enter valid path and file name for the file")
         sys.exit() # exit the program
