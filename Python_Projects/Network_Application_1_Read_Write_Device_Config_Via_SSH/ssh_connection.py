@@ -10,6 +10,7 @@ import sys
 # First lets try to get file path of username/password file and the command file
 # Later we will open the 2 files in read mode to get usr/pwd info to remote SSH and send configs to the devices
 # So we will use the functions from "command_file_valid.py" and "usr_pass_file_valid.py"
+
 #usr_file = usr_pass_file_valid.usr_pass_valid()
 #cmd_file = command_file_valid.command_file_valid()
 
@@ -66,7 +67,7 @@ def ssh_connection(ip):
         #Capturing command output to check any syntax errors
         router_output = connection.recv(65535) # 65535 is max limit of receving data
         # print (str(router_output) + "\n")
-        if re.search(b"% Invalid input", router_output):
+        if re.search(b"% Invalid input", router_output): # b is for byte object
             print("There was at least one syntax error on device : ", ip)
         else:
             print("All command executed on device : ", ip)
