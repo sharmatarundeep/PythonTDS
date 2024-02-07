@@ -15,8 +15,8 @@ usr_file = usr_pass_file_valid.usr_pass_valid()
 cmd_file = command_file_valid.command_file_valid()
 
 # Temporary to test the functionality of this module
-#usr_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/usr_pass.txt'
-#cmd_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/command.txt'
+# usr_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/usr_pass.txt'
+# cmd_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/command.txt'
 
 # Now lets establish the SSH connection
 def ssh_connection(ip):
@@ -66,11 +66,15 @@ def ssh_connection(ip):
 
         #Capturing command output to check any syntax errors
         router_output = connection.recv(65535) # 65535 is max limit of receving data
-        # print (str(router_output) + "\n")
+        # print ("\n"+ str(router_output) + "\n") # Sample o/p below
+        '''Last login: Wed Feb  7 08:14:47 2024 from 10.95.66.68\r\r\n\r\nArista Networks EOS shell\r\n\r\n-bash-4.2# FastCli\r\nsk251.08:16:10>enable\r\nsk251.08:16:11#config terminal\r\nsk251.08:16:12(config)#hostname TarunPython\r\nTarunPython.08:16:13(config)#show ntp status\r\nsynchronised to NTP server (10.90.20.122) at stratum 3\r\n   time correct to within 21 ms\r\n   polling server every 1024 s\r\n\r\nTarunPython.08:16:14(config)#'''
+        # To extract the ip address of NTP server 
+        print("The NTP server's IP address for device %s is : " %ip + re.findall(r"(\d+\.\d+\.\d+\.\d+)", str(router_output))[1])
+        
         if re.search(b"% Invalid input", router_output): # b is for byte object
             print("There was at least one syntax error on device : ", ip)
         else:
-            print("All command executed on device : ", ip)
+            print("All commands executed on device : ", ip)
 
         #Closing the SSH connection
         session.close()

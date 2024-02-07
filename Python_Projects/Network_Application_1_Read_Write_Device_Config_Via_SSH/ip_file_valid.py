@@ -7,9 +7,9 @@ def ip_file_valid():
 
     #check if file exist 
     if os.path.isfile(ip_file) == True:
-        print ("IP address file exist")
+        print ("IP address file exist\n")
     else:
-        print ("IP address file doesn't exist, please enter valid path and file name for the file")
+        print ("IP address file doesn't exist, please enter valid path and file name for the file\n")
         sys.exit() # exit the program
     
     # Open the file in read mode and read all the IP adress and store as a list
