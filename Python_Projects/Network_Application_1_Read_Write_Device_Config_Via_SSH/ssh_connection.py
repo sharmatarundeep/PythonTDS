@@ -4,19 +4,19 @@ import time
 import re
 import os.path 
 import sys
-#import usr_pass_file_valid
-#import command_file_valid
+import usr_pass_file_valid
+import command_file_valid
 
 # First lets try to get file path of username/password file and the command file
 # Later we will open the 2 files in read mode to get usr/pwd info to remote SSH and send configs to the devices
 # So we will use the functions from "command_file_valid.py" and "usr_pass_file_valid.py"
 
-#usr_file = usr_pass_file_valid.usr_pass_valid()
-#cmd_file = command_file_valid.command_file_valid()
+usr_file = usr_pass_file_valid.usr_pass_valid()
+cmd_file = command_file_valid.command_file_valid()
 
 # Temporary to test the functionality of this module
-usr_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/usr_pass.txt'
-cmd_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/command.txt'
+#usr_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/usr_pass.txt'
+#cmd_file = '/Users/tarundeep/Desktop/Python_TDS/Python_Projects/Network_Application_1_Read_Write_Device_Config_Via_SSH/command.txt'
 
 # Now lets establish the SSH connection
 def ssh_connection(ip):
@@ -38,7 +38,7 @@ def ssh_connection(ip):
         session = paramiko.SSHClient() # Create new SSH client
 
         #For testing purposes, this allows auto-accepting unknown host keys. Donot use in production
-        #session.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        session.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
         #Connect to device using username and password
         session.connect(ip.rstrip("\n"), username=username, password=password)
@@ -79,5 +79,4 @@ def ssh_connection(ip):
         print ("Authentication Failed for : ", ip)
         print("Closing program... Bye!")
 
-ssh_connection("172.30.190.25") # for testing this modules functionality 
-
+# ssh_connection("172.30.190.25") # for testing this modules functionality 
