@@ -1,4 +1,5 @@
 # Objective of this python module is to create SSH connection with the devices and send the specified commands
+# Also added functinalty to extract something from the show output using regex
 import paramiko # used for SSH and networking remote connectivity
 import time
 import re
