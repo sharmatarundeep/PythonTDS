@@ -114,10 +114,33 @@ def subnet_calc():
         print("Wildcard mask: %s" % wild_card_mask)
         print("Mask bits like /24 or /16 is : %s" % no_ones)
         
+        # Task 3 Final task - Now lets work on random Ip generator in the same subnet
+        # we will use network address and broadcast ip add to generate random ip
+        # All the octets which are common between network ip address and broadcast ip add, will remain the same and remaining octets will be generated randomly
+        while True:
+            generate = input("Do you want to generate random ip address from this subnet : (y/n)")
+
+            if generate == "y":
+                generated_ip=[] # empty list to store the octets of random ip address
+                for indexb, valueb in enumerate(broadcast_address_int):
+                    for indexn, valuen in enumerate(network_address_int):
+                        if indexb == indexn: # same indexes in both list have same value so this octet will go in random ip
+                            if valueb == valuen:
+                                generated_ip.append(valueb)
+                            else: # if value of 2 octets on same index is not same between two list that means this is host part and need randomisation
+                                generated_ip.append(str(random.randint(int(valuen), int(valueb)))) # add randon value between value of network octet and broadcast octet like 0 to 255
+                #print (generated_ip) # '10', '1', '1', 89]
+                y_iaddr = ".".join(generated_ip)
+                print ("The random ip is : %s" % y_iaddr)
+            elif generate == "n":
+                print ("Ok, bye!!")
+                break
+            else:
+                print("Not a valid input, input came be either y or n, so quitting, BBYE!!")
+                break
 
     except KeyboardInterrupt:
         print ("\nProgram aborted by the user..Exiting..\n")
         sys.exit()
 
-
-subnet_calc() # just for testing
+subnet_calc() # calling the function for testing

@@ -5,7 +5,7 @@
     * Number of valid host per subnet (Formula 2 raise to power number of host bits - 2 (for network address and broadcast address))
     * Wildcard Mask (Formula 255.255.255.255 minus subnet mask)
     * Number of mask bits (like /24, /16 - number of bits masked) (No of 1's calculated in binary of subnet mask)
-    * Also we will add functionalty to generate one or more random ip addresses from a given subnet
+    * Also we will add functionalty to generate one or more random ip addresses from a given subnet (To generate random ip we will use network address and broadcat address. Now compare all the octets in network address and broadcast added, it they are same use as is, if they are not same randomize the octet and use for generating the random IP)
 * Plan 
     * Import all the modules 
     * Check ip address validity
