@@ -4,7 +4,7 @@
     * Broadcast Address (make all the host bits 1 in binary)
     * Number of valid host per subnet (Formula 2 raise to power number of host bits - 2 (for network address and broadcast address))
     * Wildcard Mask (Formula 255.255.255.255 minus subnet mask)
-    * Number of mask bits (like /24, /16 - number of bits masked)
+    * Number of mask bits (like /24, /16 - number of bits masked) (No of 1's calculated in binary of subnet mask)
     * Also we will add functionalty to generate one or more random ip addresses from a given subnet
 * Plan 
     * Import all the modules 
