@@ -31,8 +31,43 @@ def subnet_calc():
             else:
                 print ("Not a valid subnet mask.. Exiting..\n")
                 sys.exit()
+
+        # Task 1 : Lets find wildcard mask and no of valid hosts per subnet in the next section
+        # We are going to convert subnet mask to binary.  Example 255.255.255.0 - > 11111111111111111111111100000000
+        
+        # Convert mast to binary string 
+        mask_octets_binary = [] # we will store all the binary octets in this list
+
+        for octets in sub_octets:
+            binary_octet = bin(int(octets)).lstrip("0b") # also remove 0b from '0b11111111'
+            mask_octets_binary.append(binary_octet.zfill(8)) #  To fill/padd 0's until the octet lenght becomes 8. If you convert 0 to binary it will be '0b0'. So extra 7 0's needed to be added
+        
+        binary_mask_value = "".join(mask_octets_binary)
+        # print (mask_octets_binary) # result for 255.255.255.0 -> ['11111111', '11111111', '11111111', '00000000']
+        # print (binary_mask_value) # result for 255.255.255.0 -> 11111111111111111111111100000000
+        # Count host and network bits in the final binary mask
+        no_zeros = binary_mask_value.count("0") # 
+        no_ones = 32 - no_zeros
+        # no of host = 2 raise to the power no of host bits (0's) - 2 (one for network address and one for broadcast address)
+        no_host = abs(2 ** no_zeros - 2) # absolute is used to always return a positive value. This is to handle the case of /32 , no_zeros would be 0, so 2 raise to power 0 = 1 and 1 -2 = -1. 
+        #print (no_zeros)
+        #print (no_host)
+
+        # Now lets find wild card mask. Formula is 255.255.255.255 minus network subnet mask 255.255.255.255 => 0.0.0.255
+        wild_card_octets = []
+        for octets in sub_octets:
+            wild_card_octets.append(str(255 - int(octets)))
+        wild_card_mask = ".".join(wild_card_octets) #
+        # print (wild_card_mask)
+
+        # Task 2 : Lets find network address and broadcast address
+        # For network address make all the host bits = 0
+        # For host address make all the host bits = 1
+
         
 
+
+        
     except KeyboardInterrupt:
         print ("\nProgram aborted by the user..Exiting..\n")
         sys.exit()
