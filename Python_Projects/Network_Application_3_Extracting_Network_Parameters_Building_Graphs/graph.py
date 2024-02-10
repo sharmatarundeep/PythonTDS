@@ -1,7 +1,7 @@
 # just importing py plot and animation functions
 # Note : matplotlib is not a default module, so first install it using pip3 install matplotlib in macOS
-import matplotlib.pyplot as pyp # pyp is alias I created for simplicty
-import matplotlib.animation as animation # animation is alias I created for simplicty
+import matplotlib.pyplot as pyp # pyp is alias I created for simplicity
+import matplotlib.animation as animation # animation is alias I created for simplicity
 
 #First thing we do when building a graph is creating a new figure object
 figure = pyp.figure()
