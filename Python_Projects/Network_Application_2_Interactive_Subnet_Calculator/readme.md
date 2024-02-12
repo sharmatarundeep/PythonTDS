@@ -34,5 +34,9 @@ Random ip address is : 192.168.0.173
 Do you want to generate random ip address from this subnet : (y/n)n
 Ok, bbye!!
 
+Modules used 
+* sys (for exiting the program in case of error sys dot exit())
+* random (generating random integers)
+
 <br>
 Author - Tarundeep Sharma

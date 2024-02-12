@@ -1,4 +1,4 @@
-# Check the rechability of all devices , we need to make sure all the ip addresses mentioned in ip.txt file are reachable
+# Check the reachability of all devices , we need to make sure all the ip addresses mentioned in ip.txt file are reachable
 import sys
 import subprocess
 
