@@ -9,6 +9,7 @@ Modules used
 * sys (for exiting the program in case of error sys dot exit())
 * paramiko (used for SSH and networking remote connectivity)
 * subprocess (to send ping command)
+* matplotlib (to draw graphs)
 
 
 <br>
