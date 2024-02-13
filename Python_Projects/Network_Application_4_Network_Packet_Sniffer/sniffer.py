@@ -78,3 +78,38 @@ elif (proto_sniff) == "0":
 file_name_path = input("Please share the path and name of the log file: ")
 #Creating the text file (if it doesn't exist) for packet logging and/or opening it for appending
 sniffer_log = open(file_name_path, "a")
+
+#This is the function that will be called for each captured packet
+#The function will extract parameters from the packet and then log each packet to the log file
+#This function will be run for every captured packet using PRN argument of sniff function.
+def packet_log(packet):
+    #Getting the current timestamp using now method
+    now = datetime.now()
+    
+    #Writing the packet information to the log file, also considering the protocol or 0 for all protocols
+    if proto_sniff == "0":
+        #Writing the data to the log file
+        print("Time: " + str(now) + " Protocol: ALL" + " SMAC: " + packet[0].src + " DMAC: " + packet[0].dst, file = sniffer_log)
+        
+    elif (proto_sniff == "arp") or (proto_sniff == "bootp") or (proto_sniff == "icmp"):
+        #Writing the data to the log file
+        print("Time: " + str(now) + " Protocol: " + proto_sniff.upper() + " SMAC: " + packet[0].src + " DMAC: " + packet[0].dst, file = sniffer_log)
+
+
+#Now we are about to start the capture / sniff process
+print ("\nPacket capture is starting now.\n")
+
+#Running the sniffing process (with or without a filter)
+#Prn argument of sniff function is used for function to apply to each packet. 
+#So that means while sniffing we are calling the packet_log func to be applied to each captured packet
+if proto_sniff == "0":
+    sniff(iface = net_iface, count = int(pkt_to_sniff), timeout = int(time_to_sniff), prn = packet_log)
+ 
+elif (proto_sniff == "arp") or (proto_sniff == "bootp") or (proto_sniff == "icmp"):
+    sniff(iface = net_iface, filter = proto_sniff, count = int(pkt_to_sniff), timeout = int(time_to_sniff), prn = packet_log)
+    
+else:
+    print("\nCould not identify the protocol.\n")
+ 
+#Printing the closing message
+print("\n* Please check the %s file to see the captured packets.\n" % file_name_path)
