@@ -1,0 +1,71 @@
+#Please refer to the commented section below for a short Scapy recap!
+ 
+#In Scapy, we will use the sniff() function to capture network packets.
+#To see a list of what functions Scapy has available, open Scapy and run the lsc() function.
+#Run the ls() function to see ALL the supported protocols.
+#Run the ls(protocol) function to see the fields and default values for any protocol. E.g. ls(BOOTP)
+#See packet layers and contents with the .show() method.
+#Dig into a specific packet layer using a list index: pkts[3][2].summary()
+#...the first index chooses the packet out of the pkts list, the second index chooses the layer for that specific packet.
+#Using the .command() method will return a string for the command necessary to recreate that sniffed packet.
+ 
+#To see the list of optional arguments for the sniff() function:
+#print(sniff.__doc__)
+'''
+Sniff packets and return a list of packets.
+ 
+Arguments:
+ 
+  count: number of packets to capture. 0 means infinity.
+ 
+  store: whether to store sniffed packets or discard them
+ 
+  prn: function to apply to each packet. If something is returned, it
+      is displayed.
+ 
+      Ex: prn = lambda x: x.summary()
+ 
+  filter: BPF filter to apply.
+ 
+  lfilter: Python function applied to each packet to determine if
+      further action may be done.
+ 
+      Ex: lfilter = lambda x: x.haslayer(Padding)
+ 
+  offline: PCAP file (or list of PCAP files) to read packets from,
+      instead of sniffing them
+ 
+  timeout: stop sniffing after a given time (default: None).
+ 
+  L2socket: use the provided L2socket (default: use conf.L2listen).
+ 
+  opened_socket: provide an object (or a list of objects) ready to use
+      .recv() on.
+ 
+  stop_filter: Python function applied to each packet to determine if
+      we have to stop the capture after this packet.
+ 
+      Ex: stop_filter = lambda x: x.haslayer(TCP)
+ 
+  iface: interface or list of interfaces (default: None for sniffing
+      on all interfaces).
+ 
+The iface, offline and opened_socket parameters can be either an
+element, a list of elements, or a dict object mapping an element to a
+label (see examples below).
+ 
+Examples:
+ 
+  >>> sniff(filter="arp")
+ 
+  >>> sniff(lfilter=lambda pkt: ARP in pkt)
+ 
+  >>> sniff(iface="eth0", prn=Packet.summary)
+ 
+  >>> sniff(iface=["eth0", "mon0"],
+  ...       prn=lambda pkt: "%s: %s" % (pkt.sniffed_on,
+  ...                                   pkt.summary()))
+ 
+  >>> sniff(iface={"eth0": "Ethernet", "mon0": "Wifi"},
+  ...       prn=lambda pkt: "%s: %s" % (pkt.sniffed_on,
+  ...
