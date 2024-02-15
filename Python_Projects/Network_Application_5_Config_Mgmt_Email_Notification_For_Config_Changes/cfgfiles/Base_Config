@@ -36,7 +36,7 @@ service routing protocols model multi-agent
 !
 logging console debugging
 !
-hostname smm353
+hostname smm353_tarun
 ip name-server vrf default 172.30.243.4
 dns domain sjc.aristanetworks.com
 ip domain-list aristanetworks.com

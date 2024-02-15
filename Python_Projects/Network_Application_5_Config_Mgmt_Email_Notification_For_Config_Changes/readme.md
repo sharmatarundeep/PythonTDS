@@ -1,6 +1,6 @@
 * Python Network Application # 4 - Config Management on the devices and sending email notification about the config changes. 
-* Overview - We will login to a device and save base config and next day again save the running config, later compare the latest running config with yesterday and send email to the user in HTML format about the config changes. We can also schedule a job to run this application periodically.
-* Please note that when running the application for the first time please have a base config file which it can compare to. Like I created Base_Config in cfgfiles folder.
+* Overview - We will login to a device save the running config, later compare the latest running config with base config file and send email to the user in HTML format about the config changes. 
+* Please note that when running the application for the first time please have a base config file which it can compare to. Example - I created Base_Config in cfgfiles folder.
 
 
 Modules used 
