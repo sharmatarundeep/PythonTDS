@@ -33,7 +33,7 @@ session = ConnectHandler(device_type = device_type, ip = ip_smm353, username = u
 enable = session.send_command_expect("enable",expect_string = r".+")
 
 #Sending the command and storing the output (running configuration)
-output = session.send_command(command, cmd_verify=False, read_timeout=10) # as show run command can take time so added timeout delay
+output = session.send_command('show running',read_timeout=20) # as show run command can take time so added timeout delay
 
 #Defining the base file for comparison.
 device_cfg_old = path + 'Base_Config'
@@ -45,7 +45,7 @@ with open(path + ip_smm353 + '_' + datetime.date.today().isoformat(), 'w') as de
 #Extracting the differences between yesterday's and today's files in HTML format
 #Compare the base files with today's config file line by line
 with open(device_cfg_old, 'r') as old_file, open(path + ip_smm353 + '_' + datetime.date.today().isoformat(), 'r') as new_file:
-    difference = difflib.HtmlDiff().make_file(fromlines = old_file.readlines(), tolines = new_file.readlines(), fromdesc = 'Yesterday', todesc = 'Today')
+    difference = difflib.HtmlDiff().make_file(fromlines = old_file.readlines(), tolines = new_file.readlines(), fromdesc = 'BackUpConfig', todesc = 'LatestConfig')
 
 #Sending the differences via email
 #Defining the e-mail parameters
