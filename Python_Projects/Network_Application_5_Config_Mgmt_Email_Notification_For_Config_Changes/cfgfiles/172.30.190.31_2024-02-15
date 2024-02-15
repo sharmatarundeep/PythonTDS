@@ -1,0 +1,146 @@
+! Command: show running-config
+! device: smm353 (DCS-7280CR3MK-32P4, EOS-4.31.1F)
+!
+! boot system flash:/EOS.swi
+!
+aaa root secret sha512 $6$e428bbY9.WBBre31$t0ayamYodmFarTweQeWCWDs8piNP5VsQjTuUiarfEzOVIcXSyaRxUVbneoRATnhhxAm/rt2AP1YxyZChcM/Gy1
+aaa authentication policy local allow-nopassword-remote-login
+!
+prompt %H.%D{%H:%M:%S}%P
+terminal length 0
+alias dmp bash sudo tcpdump -nevvi
+alias messages bash sudo tail -f /var/log/messages
+alias qdrp sh interfaces counters queue drops | nz
+alias senz show interface counter error | nz
+alias shmc show int | awk '/^[A-Z]/ { intf = $1 } /, address is/ { print intf, 6 }'
+alias snz show interface counter | nz
+alias spd show port-channel %1 detail all
+alias sqnz show interface counter queue | nz
+alias srnz show interface counter rate | nz
+alias w watch 1 diff
+!
+alias cac
+   1 clear counter
+   2 clear plat fap counter
+   3 clear hardware counter drop
+   4 clear mac sec counter
+!
+alias drp
+   1 sh interfaces counters errors | nz
+   2 sh interfaces counters discards | nz
+   3 sh hardware counter drop | nz
+!
+load-interval default 0
+!
+service routing protocols model multi-agent
+!
+logging console debugging
+!
+hostname smm353
+ip name-server vrf default 172.30.243.4
+dns domain sjc.aristanetworks.com
+ip domain-list aristanetworks.com
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+interface Ethernet1/1
+!
+interface Ethernet2/1
+!
+interface Ethernet3/1
+!
+interface Ethernet4/1
+!
+interface Ethernet5/1
+!
+interface Ethernet6/1
+!
+interface Ethernet7/1
+!
+interface Ethernet8/1
+!
+interface Ethernet9/1
+!
+interface Ethernet10/1
+!
+interface Ethernet11/1
+!
+interface Ethernet12/1
+!
+interface Ethernet13/1
+!
+interface Ethernet14/1
+!
+interface Ethernet15/1
+!
+interface Ethernet16/1
+!
+interface Ethernet17/1
+!
+interface Ethernet18/1
+!
+interface Ethernet19/1
+!
+interface Ethernet20/1
+!
+interface Ethernet21/1
+!
+interface Ethernet22/1
+!
+interface Ethernet23/1
+!
+interface Ethernet24/1
+!
+interface Ethernet25/1
+!
+interface Ethernet26/1
+!
+interface Ethernet27/1
+!
+interface Ethernet28/1
+!
+interface Ethernet29/1
+!
+interface Ethernet30/1
+!
+interface Ethernet31/1
+!
+interface Ethernet32/1
+!
+interface Ethernet33/1
+!
+interface Ethernet34/1
+!
+interface Ethernet35/1
+!
+interface Ethernet36/1
+!
+interface Management1
+   ip address 172.30.190.31/25
+!
+ip routing
+!
+ip route 10.80.0.0/12 172.30.175.1
+ip route 10.80.0.0/12 172.30.190.1
+ip route 10.81.0.0/16 172.30.175.1
+ip route 10.81.0.0/16 172.30.190.1
+ip route 10.85.0.0/16 172.30.175.1
+ip route 10.85.0.0/16 172.30.190.1
+ip route 10.95.0.0/16 172.30.175.1
+ip route 10.95.0.0/16 172.30.190.1
+ip route 10.240.0.0/12 172.30.175.1
+ip route 10.240.0.0/12 172.30.190.1
+ip route 10.240.0.0/14 172.30.175.1
+ip route 10.240.0.0/14 172.30.190.1
+ip route 100.100.100.0/24 50.1.1.0
+ip route 172.16.0.0/12 172.30.175.1
+ip route 172.16.0.0/12 172.30.190.1
+!
+ntp server ntp1.aristanetworks.com
+!
+end
+smm353.16:11:23#
