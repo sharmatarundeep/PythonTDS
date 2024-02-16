@@ -43,7 +43,7 @@ def ssh_connection(ip):
         print ("Authentication Failed for : ", ip)
         print("Closing program... Bye!")
 
-# Saving the list of IP addresses in a variable 
+# Ip address of the DUT
 ip = "172.24.64.31"
 
 # Now call create_thread func to start executing commands on all devices simultaneously
