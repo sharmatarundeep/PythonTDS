@@ -72,7 +72,7 @@ t = turtle.Turtle() #using turtle object
 def draw_star(turtle_object, size):
     t.getscreen().bgcolor("black") # set screen background color to black
     t.color("white", "yellow") # color for star drawing
-    t.speed(20) # to speed up the drawing
+    t.speed(200) # to speed up the drawing
     for _ in range(5): # for nothing in range 5 , when you don't want to use the variable value in range
         turtle_object.forward(size)
         turtle_object.left(216) # this is the needed angle for star
@@ -80,7 +80,7 @@ def draw_star(turtle_object, size):
 # draw_star(t,100) # create one start
         
 # Now if you want to create sky full of 50 stars
-for _ in range (50): # 50 stars
+for _ in range (20): # 50 stars
     # x and y coordinates of the screen for where to make the star
     x=random.randint(-300,300)
     y=random.randint(-300,300) # center of screen is 0,0. If you go left + up its negative. If you go right and down its positive
