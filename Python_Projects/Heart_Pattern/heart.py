@@ -15,7 +15,7 @@ turtle.circle(-90,180) # make a semicircle
 turtle.forward(180)
 turtle.end_fill()
 
-# to write something in the heart
+# to write something inside the heart
 turtle.penup()
 turtle.goto(-100,100)
 turtle.pendown()
