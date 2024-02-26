@@ -4,7 +4,7 @@
 
 2. Every function has a return value. If you don't have a return statement in the function, by default function will return None. Also print function always return None.
 
-3. Deep copy vs regular copy 
+3. Deep copy vs regular copy..
     * In case of regular copy both variables will point to same reference and if you change 1 other will change too
     list1 = [1,2,3,4]
     list2 = list1 # copy list 1 to list 2
