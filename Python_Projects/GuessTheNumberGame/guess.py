@@ -6,7 +6,6 @@ name = input() # Take user input
 
 print("Well " + name + ", I am thinking of a number between 1 to 20, can you guess it?")
 secretnumber = random.randint(1,20) # Generate a random number and store it to compare later
-
 #Ask player to guess 5 times. 5 is the max chances player have to guess it right
 for i in range (5):
     print("Take a guess")
