@@ -10,7 +10,7 @@
     list2 = list1 # copy list 1 to list 2
     list2[1] = 5 # Both list1 and list2 will change now
     * In case of deep copy both variables will point to different reference and if you change 1 other will not change
-    import copy
+    import copy 
     list1 = [1,2,3,4]
     list2 = copy.deepcopy(list1) # deep copy list 1 to list 2
     list2[1] = 5 # only list 2 will change
