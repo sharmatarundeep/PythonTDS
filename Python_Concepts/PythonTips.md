@@ -13,7 +13,7 @@
     import copy 
     list1 = [1,2,3,4]
     list2 = copy.deepcopy(list1) # deep copy list 1 to list 2
-    list2[1] = 5 # only list 2 will change
+    list2[1] = 5 # only list 2 will change 
 
 4. Pyperclip - Can be used to copy something to clipboard and paste it later as needed. Example below
     import pyperclip
