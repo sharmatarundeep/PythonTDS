@@ -80,3 +80,5 @@ print(mo.group()) # 1234567890 - march all
 
 
 # Section 4 
+# Findall method - all matches of the pattern in a string
+
