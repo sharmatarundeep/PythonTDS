@@ -30,3 +30,53 @@ print(mo.group())
 
 
 # Section 3 
+# ? - pattern can occur zero or one time 
+batRegex = re.compile(r'Bat(wo)?man') # this will match Batman or Batwoman - wo can occur zero or one time
+mo = batRegex.search("The adventures of Batman")
+print(mo.group()) # Batman
+mo = batRegex.search("The adventures of Batwoman")
+print(mo.group()) # Batwoman
+mo = batRegex.search("The adventures of Batwowowoman") # error or no match case
+print (mo) # None
+# print(mo.group()) - error as wo can be just one or zero times
+
+# * - pattern can occur zero or more times
+batRegex = re.compile(r'Bat(wo)*man') # this will match Batman or Batwoman - wo can occur zero or one time
+mo = batRegex.search("The adventures of Batman")
+print(mo.group()) # Batman
+mo = batRegex.search("The adventures of Batwoman")
+print(mo.group()) # Batwoman
+mo = batRegex.search("The adventures of Batwowowoman")
+print(mo.group()) # Batwowowoman
+
+# + - pattern can occur one or more times
+batRegex = re.compile(r'Bat(wo)+man') # this will match Batman or Batwoman - wo can occur zero or one time
+mo = batRegex.search("The adventures of Batman") # error case as no match
+print(mo) # None
+mo = batRegex.search("The adventures of Batwoman")
+print(mo.group()) # Batwoman
+mo = batRegex.search("The adventures of Batwowowoman")
+print(mo.group()) # Batwowowoman
+
+# Match exactly a few times like 3 times 
+haRegex = re.compile(r'(ha){3}') # means match ha 3 times
+mo = haRegex.search("he said hahaha")
+print(mo.group()) # hahaha
+
+# Match exactly in a range like 3 to 5 times
+haRegex = re.compile(r'(ha){3,5}') # means match ha 3 times
+mo = haRegex.search("he said hahaha")
+print(mo.group()) # hahaha 
+mo = haRegex.search("he said hahahahaha")
+print(mo.group()) # hahahahaha
+
+# {3,5} - 3 to 5 times, {,5} - 0 to 5 times, {3,} - atleast 3 times 
+digitRegex = re.compile(r"(\d){3,5}")
+mo = digitRegex.search("1234567890")
+print(mo.group()) # 12345 - only 5 characters were matched
+digitRegex = re.compile(r"(\d){3,}")
+mo = digitRegex.search("1234567890")
+print(mo.group()) # 1234567890 - march all 
+
+
+# Section 4 
