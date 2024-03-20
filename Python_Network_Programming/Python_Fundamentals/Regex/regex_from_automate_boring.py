@@ -82,3 +82,15 @@ print(mo.group()) # 1234567890 - march all
 # Section 4 
 # Findall method - all matches of the pattern in a string
 
+# Section 5 
+# carrot character to search something at the start of a string 
+beginRegex = re.compile(r"^Hello")
+mo = beginRegex.search("Hello there")
+print(mo.group())
+mo = beginRegex.search("Hi Hello there")
+print(mo)# None as Hello is not in the beginning 
+
+# Dollar character to search something at the end of a string 
+endRegex = re.compile(r"World!$")
+mo = endRegex.search("Hello World!")
+print(mo.group())
