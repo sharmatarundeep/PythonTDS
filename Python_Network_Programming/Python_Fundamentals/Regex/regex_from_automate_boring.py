@@ -94,3 +94,36 @@ print(mo)# None as Hello is not in the beginning
 endRegex = re.compile(r"World!$")
 mo = endRegex.search("Hello World!")
 print(mo.group()) 
+
+#Section 6 
+#Find and Replace functionality using sub function of regex
+#How to find agent names in a string
+nameRegex = re.compile(r'Agent \w+')
+mo = nameRegex.findall("Agent Alice gave the secret documents to Agent Bob")
+print(mo) # ['Agent Alice', 'Agent Bob']
+
+#Now how to find and replace agent names for confidentiality 
+#Use sub method - This will find and replace the regex match with whatever you specify
+nameRegex = re.compile(r'Agent \w+')
+mo = nameRegex.sub('CONFIDENTIAL',"Agent Alice gave the secret documents to Agent Bob")
+print(mo) # CONFIDENTIAL gave the secret documents to CONFIDENTIAL
+
+#Now how to find and replace agent names with their first character and some stars
+#We can use groups for the same
+nameRegex = re.compile(r'Agent (\w)\w*') # First group will be the first character of the agent name
+mo = nameRegex.sub(r'Agent \1****',"Agent Alice gave the secret documents to Agent Bob")
+print(mo) # Agent A**** gave the secret documents to Agent B****
+
+#Verbose mode - Space and next line will not be considered to be part of regex expression. You can add documentation comments to your regex code
+# How to match a phone number 
+phoneRegex = re.compile(r"\d\d\d-\d\d\d-\d\d\d\d")
+mo = phoneRegex.findall("My phone is 613-207-1234") 
+print(mo) # ['613-207-1234']
+
+# Now lets use verbose 
+phoneRegexVerbose = re.compile(r'''\d\d\d- # Area code
+                               \d\d\d- # Next 3 digits 
+                               \d\d\d\d''', re.VERBOSE) # Last 4 digits
+mo = phoneRegexVerbose.findall("My phone is 613-207-1234") 
+print(mo) # ['613-207-1234']
+
