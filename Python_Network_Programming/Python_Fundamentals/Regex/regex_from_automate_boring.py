@@ -111,7 +111,7 @@ print(mo) # CONFIDENTIAL gave the secret documents to CONFIDENTIAL
 #Now how to find and replace agent names with their first character and some stars
 #We can use groups for the same
 nameRegex = re.compile(r'Agent (\w)\w*') # First group will be the first character of the agent name
-mo = nameRegex.sub(r'Agent \1****',"Agent Alice gave the secret documents to Agent Bob")
+mo = nameRegex.sub(r'Agent \1****',"Agent Alice gave the secret documents to Agent Bob") # \1 represents the first group
 print(mo) # Agent A**** gave the secret documents to Agent B****
 
 #Verbose mode - Space and next line will not be considered to be part of regex expression. You can add documentation comments to your regex code
