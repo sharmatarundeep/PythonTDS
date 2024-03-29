@@ -21,4 +21,8 @@
     you can do command + v now or
     pyperclip.paste()  
 
-5. 
+5. Pyperclip - Can be used to copy something to clipboard and paste it later as needed. Example below
+    import pyperclip
+    pyperclip.copy("Hello")
+    you can do command + v now or
+    pyperclip.paste()
