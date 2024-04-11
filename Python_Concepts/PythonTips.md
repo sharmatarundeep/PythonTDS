@@ -20,5 +20,3 @@
     pyperclip.copy("Hello")
     you can do command + v now or
     pyperclip.paste()
-
-5. 
